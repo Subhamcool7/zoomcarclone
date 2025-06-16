@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Self-Drive Car Rental in Bangalore at Best Rates | Zoomcar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #79b641;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #79b641;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #79b641;
+            color: #79b641;
+        }
+
+        .btn-primary {
+            background: #79b641;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline:hover {
+            background: #79b641;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #6a9e39;
+        }
+
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #79b641 0%, #6a9e39 100%);
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        /* Booking Form */
+        .booking-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            color: #333;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .form-group input, .form-group select {
+            padding: 0.875rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #79b641;
+        }
+
+        .search-btn {
+            background: #79b641;
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .search-btn:hover {
+            background: #6a9e39;
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #79b641;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        /* Cars Section */
+        .cars-section {
+            padding: 4rem 0;
+        }
+
+        .cars-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .car-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .car-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .swift-image {
+            background-image: url('https://cdnjs.cloudflare.com/ajax/libs/placeholder-images/1.0.0/placeholder_600x400_79b641_FFFFFF.png');
+        }
+
+        .i20-image {
+            background-image: url('https://cdnjs.cloudflare.com/ajax/libs/placeholder-images/1.0.0/placeholder_600x400_79b641_FFFFFF.png');
+        }
+
+        .city-image {
+            background-image: url('https://cdnjs.cloudflare.com/ajax/libs/placeholder-images/1.0.0/placeholder_600x400_79b641_FFFFFF.png');
+        }
+
+        .xuv-image {
+            background-image: url('https://cdnjs.cloudflare.com/ajax/libs/placeholder-images/1.0.0/placeholder_600x400_79b641_FFFFFF.png');
+        }
+
+        .innova-image {
+            background-image: url('https://cdnjs.cloudflare.com/ajax/libs/placeholder-images/1.0.0/placeholder_600x400_79b641_FFFFFF.png');
+        }
+
+        .bmw-image {
+            background-image: url('https://cdnjs.cloudflare.com/ajax/libs/placeholder-images/1.0.0/placeholder_600x400_79b641_FFFFFF.png');
+        }
+
+        .car-info {
+            padding: 1.5rem;
+        }
+
+        .car-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .car-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #79b641;
+            margin-bottom: 1rem;
+        }
+
+        .car-features {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .book-now-btn {
+            background: #79b641;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .book-now-btn:hover {
+            background: #6a9e39;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #79b641;
+        }
+
+        .rating {
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #6e6f71;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #79b641;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #79b641;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #888;
+            padding-top: 1rem;
+            text-align: center;
+            color: #ccc;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #ccc;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #79b641;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .booking-form {
+                margin: 2rem 1rem;
+                padding: 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Loading States */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #79b641;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Car Image Overlays */
+        .car-image::after {
+            content: attr(data-car-name);
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(121, 182, 65, 0.9);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .car-image {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">Zoomcar</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#cars">Cars</a></li>
+                    <li><a href="#subscription">Subscription</a></li>
+                    <li><a href="#host">Host</a></li>
+                    <li><a href="#support">Support</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="#" class="btn btn-outline">Login</a>
+                <a href="#" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <h1 class="fade-in-up">Book Self-Drive Cars in Bangalore</h1>
+            <p class="fade-in-up">Choose from 25,000+ cars at the best rates. Instant booking, no hidden fees, 24/7 support.</p>
+            
+            <!-- Booking Form -->
+            <div class="booking-form fade-in-up">
+                <form id="bookingForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pickup-location">Pickup Location</label>
+                            <select id="pickup-location" required>
+                                <option value="">Select Location</option>
+                                <option value="koramangala">Koramangala</option>
+                                <option value="whitefield">Whitefield</option>
+                                <option value="indiranagar">Indiranagar</option>
+                                <option value="btm-layout">BTM Layout</option>
+                                <option value="electronic-city">Electronic City</option>
+                                <option value="hebbal">Hebbal</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pickup-date">Pickup Date</label>
+                            <input type="date" id="pickup-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pickup-time">Pickup Time</label>
+                            <input type="time" id="pickup-time" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="return-date">Return Date</label>
+                            <input type="date" id="return-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="return-time">Return Time</label>
+                            <input type="time" id="return-time" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="car-type">Car Type</label>
+                            <select id="car-type">
+                                <option value="">Any Car</option>
+                                <option value="hatchback">Hatchback</option>
+                                <option value="sedan">Sedan</option>
+                                <option value="suv">SUV</option>
+                                <option value="premium">Premium</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="search-btn">
+                        <span class="btn-text">Search Cars</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <h2 class="section-title">Why Choose Zoomcar?</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>25,000+ Cars</h3>
+                    <p>Largest fleet of self-drive cars across India with verified cars and real reviews</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Instant Booking</h3>
+                    <p>Book your car in under 60 seconds. No paperwork, no waiting time</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Round the clock customer support and roadside assistance</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>No Hidden Fees</h3>
+                    <p>Transparent pricing with no hidden charges. Pay only for what you use</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cars Section -->
+    <section class="cars-section" id="cars">
+        <div class="cars-container">
+            <h2 class="section-title">Popular Cars in Bangalore</h2>
+            <div class="cars-grid" id="carsGrid">
+                <div class="car-card fade-in-up">
+                    <div class="car-image swift-image" data-car-name="Swift"></div>
+                    <div class="car-info">
+                        <h3 class="car-name">Maruti Swift</h3>
+                        <div class="car-price">₹79/hr</div>
+                        <div class="car-features">
+                            <span><i class="fas fa-users"></i> 4 Seats</span>
+                            <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                            <span><i class="fas fa-cog"></i> Manual</span>
+                        </div>
+                        <button class="book-now-btn">Book Now</button>
+                    </div>
+                </div>
+                <div class="car-card fade-in-up">
+                    <div class="car-image i20-image" data-car-name="i20"></div>
+                    <div class="car-info">
+                        <h3 class="car-name">Hyundai i20</h3>
+                        <div class="car-price">₹89/hr</div>
+                        <div class="car-features">
+                            <span><i class="fas fa-users"></i> 5 Seats</span>
+                            <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                            <span><i class="fas fa-cog"></i> Manual</span>
+                        </div>
+                        <button class="book-now-btn">Book Now</button>
+                    </div>
+                </div>
+                <div class="car-card fade-in-up">
+                    <div class="car-image city-image" data-car-name="City"></div>
+                    <div class="car-info">
+                        <h3 class="car-name">Honda City</h3>
+                        <div class="car-price">₹109/hr</div>
+                        <div class="car-features">
+                            <span><i class="fas fa-users"></i> 5 Seats</span>
+                            <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                            <span><i class="fas fa-cog"></i> Automatic</span>
+                        </div>
+                        <button class="book-now-btn">Book Now</button>
+                    </div>
+                </div>
+                <div class="car-card fade-in-up">
+                    <div class="car-image xuv-image" data-car-name="XUV300"></div>
+                    <div class="car-info">
+                        <h3 class="car-name">Mahindra XUV300</h3>
+                        <div class="car-price">₹149/hr</div>
+                        <div class="car-features">
+                            <span><i class="fas fa-users"></i> 5 Seats</span>
+                            <span><i class="fas fa-gas-pump"></i> Diesel</span>
+                            <span><i class="fas fa-cog"></i> Manual</span>
+                        </div>
+                        <button class="book-now-btn">Book Now</button>
+                    </div>
+                </div>
+                <div class="car-card fade-in-up">
+                    <div class="car-image innova-image" data-car-name="Innova"></div>
+                    <div class="car-info">
+                        <h3 class="car-name">Toyota Innova</h3>
+                        <div class="car-price">₹189/hr</div>
+                        <div class="car-features">
+                            <span><i class="fas fa-users"></i> 7 Seats</span>
+                            <span><i class="fas fa-gas-pump"></i> Diesel</span>
+                            <span><i class="fas fa-cog"></i> Manual</span>
+                        </div>
+                        <button class="book-now-btn">Book Now</button>
+                    </div>
+                </div>
+                <div class="car-card fade-in-up">
+                    <div class="car-image bmw-image" data-car-name="BMW 3 Series"></div>
+                    <div class="car-info">
+                        <h3 class="car-name">BMW 3 Series</h3>
+                        <div class="car-price">₹399/hr</div>
+                        <div class="car-features">
+                            <span><i class="fas fa-users"></i> 5 Seats</span>
+                            <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                            <span><i class="fas fa-cog"></i> Automatic</span>
+                        </div>
+                        <button class="book-now-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="testimonials-container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in-up">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Amazing service! The car was clean, well-maintained, and the booking process was super smooth. Highly recommended for anyone looking for self-drive cars in Bangalore."</p>
+                    <p class="testimonial-author">- Priya Sharma</p>
+                </div>
+                <div class="testimonial-card fade-in-up">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-
